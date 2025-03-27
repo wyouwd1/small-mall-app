@@ -1,15 +1,27 @@
 <template>
-  <view class="demo">
-    <view>
-      欢迎使用 NutUI 开发 Taro 多端项目 <Dongdong />
-    </view>
-    <view>{{ count }}</view>
-    <view>
-      <nut-button type="primary" @click="handleClick">
-        Count++
-      </nut-button>
-    </view>
-  </view>
+  <swiper
+    class='test-h'
+    indicator-color='#999'
+    indicator-active-color='#333'
+    :vertical="true"
+    :circular="true"
+    :indicator-dots="true"
+    :autoplay="false"
+    :full="true"
+  >
+    <swiper-item>
+      <view class='demo-text-1'>首页</view>
+    </swiper-item>
+    <swiper-item>
+      <view class='demo-text-2'>品类</view>
+    </swiper-item>
+    <swiper-item>
+      <view class='demo-text-3'>购物车</view>
+    </swiper-item>
+    <swiper-item>
+      <view class='demo-text-3'>我的</view>
+    </swiper-item>
+  </swiper>
 </template>
 
 <script setup>
