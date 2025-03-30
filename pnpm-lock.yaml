@@ -11,6 +11,9 @@ importers:
       '@babel/runtime':
         specifier: ^7.7.7
         version: 7.27.0
+      '@nutui/icons-vue':
+        specifier: ^0.1.1
+        version: 0.1.1
       '@nutui/icons-vue-taro':
         specifier: ^0.0.9
         version: 0.0.9
@@ -1100,6 +1103,9 @@ packages:
 
   '@nutui/icons-vue-taro@0.0.9':
     resolution: {integrity: sha512-10VYAtFC+o1X0anGs+y2PgF1NWMeLFz2JVMRw4BWLg6wbtVbYy9wukLxyGhZC6Yf6t39DcwaGVda8paV7K6/Ew==}
+
+  '@nutui/icons-vue@0.1.1':
+    resolution: {integrity: sha512-ekn6R9GNHWNUcV4pxdhQzrI1g1VhZ5zknklXoUJrCzt0RkRRLU0bUXX3ouWT0sl0U3MNJClnXAzZe7iPAvgPtw==}
 
   '@nutui/nutui-taro@4.3.13':
     resolution: {integrity: sha512-+n8vVZAu92MUX6VEf6gO73Iz3JThjksdb6aSarvciCSydlWWdlQqZwYIGMTG4zOwDfCoQ3HfLa36zVaIJLSn3g==}
@@ -8518,6 +8524,8 @@ snapshots:
   '@nutui/auto-import-resolver@1.0.0': {}
 
   '@nutui/icons-vue-taro@0.0.9': {}
+
+  '@nutui/icons-vue@0.1.1': {}
 
   '@nutui/nutui-taro@4.3.13(unplugin-vue-components@0.26.0(@babel/parser@7.27.0)(vue@3.5.13(typescript@4.9.5)))(vue@3.5.13(typescript@4.9.5))':
     dependencies:

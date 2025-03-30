@@ -7,6 +7,24 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    NavBar: typeof import('./src/components/NavBar.vue')['default']
+    NutAvatar: typeof import('@nutui/nutui-taro')['Avatar']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
+    NutCard: typeof import('@nutui/nutui-taro')['Card']
+    NutCell: typeof import('@nutui/nutui-taro')['Cell']
+    NutCellGroup: typeof import('@nutui/nutui-taro')['CellGroup']
+    NutCheckbox: typeof import('@nutui/nutui-taro')['Checkbox']
+    NutCol: typeof import('@nutui/nutui-taro')['Col']
+    NutGrid: typeof import('@nutui/nutui-taro')['Grid']
+    NutGridItem: typeof import('@nutui/nutui-taro')['GridItem']
+    NutIcon: typeof import('@nutui/nutui-taro')['Icon']
+    NutList: typeof import('@nutui/nutui-taro')['List']
+    NutRow: typeof import('@nutui/nutui-taro')['Row']
+    NutStepper: typeof import('@nutui/nutui-taro')['Stepper']
+    NutSteps: typeof import('@nutui/nutui-taro')['Steps']
+    NutSwiper: typeof import('@nutui/nutui-taro')['Swiper']
+    NutSwiperItem: typeof import('@nutui/nutui-taro')['SwiperItem']
+    NutTabbar: typeof import('@nutui/nutui-taro')['Tabbar']
+    NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']
   }
 }
