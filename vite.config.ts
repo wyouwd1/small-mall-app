@@ -1,14 +1,25 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import vueDevTools from 'vite-plugin-vue-devtools';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-    allowedHosts: true,
-  },
   plugins: [
     vue(),
-    vueDevTools(),
   ],
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
+      },
+    },
+  },
+  server: {
+    port: 10086,
+    host: '0.0.0.0',
+  },
 });

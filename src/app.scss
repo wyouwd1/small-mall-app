@@ -1,3 +1,154 @@
-body {
+// 自定义主题变量
+:root {
+  // 主题色
+  --nutui-brand-color: #ff4d4f;
+  --nutui-brand-color-start: #ff4d4f;
+  --nutui-brand-color-end: #f5222d;
+
+  // 链接颜色
+  --nutui-brand-link: #ff4d4f;
+  --nutui-brand-link-hover: #ff7875;
+  --nutui-brand-link-active: #f5222d;
+
+  // 成功色
+  --nutui-success-color: #52c41a;
+  --nutui-success-color-start: #52c41a;
+  --nutui-success-color-end: #389e0d;
+
+  // 警告色
+  --nutui-warning-color: #faad14;
+  --nutui-warning-color-start: #faad14;
+  --nutui-warning-color-end: #d48806;
+
+  // 危险色
+  --nutui-danger-color: #ff4d4f;
+  --nutui-danger-color-start: #ff4d4f;
+  --nutui-danger-color-end: #f5222d;
+
+  // 文字颜色
+  --nutui-title-color: #333333;
+  --nutui-text-color: #666666;
+  --nutui-comment-color: #999999;
+  --nutui-help-color: #cccccc;
+
+  // 背景色
+  --nutui-background: #f8f8f8;
+  --nutui-white: #ffffff;
+  --nutui-black: #000000;
+
+  // 边框
+  --nutui-border-radius: 8px;
+  --nutui-border-radius-sm: 4px;
+  --nutui-border-radius-lg: 12px;
+}
+
+// 暗色模式
+@media (prefers-color-scheme: dark) {
+  :root {
+    // 背景色
+    --nutui-background: #1a1a1a;
+    --nutui-white: #242424;
+
+    // 文字颜色
+    --nutui-title-color: #e0e0e0;
+    --nutui-text-color: #999999;
+    --nutui-comment-color: #666666;
+    --nutui-help-color: #404040;
+  }
+}
+
+// 全局样式
+page {
+  background-color: var(--nutui-background);
+  color: var(--nutui-text-color);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+// 安全区适配
+.safe-area-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+// 通用样式类
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsis-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// 修复 NutUI 组件样式
+.nut-button {
+  &--primary {
+    background: linear-gradient(135deg, var(--nutui-brand-color-start), var(--nutui-brand-color-end));
+  }
+
+  &--danger {
+    background: linear-gradient(135deg, var(--nutui-danger-color-start), var(--nutui-danger-color-end));
+  }
+}
+
+.nut-input {
+  &__label {
+    color: var(--nutui-title-color);
+  }
+}
+
+.nut-toast {
+  z-index: 9999;
+}
+
+.nut-dialog {
+  border-radius: var(--nutui-border-radius);
+  
+  &__header {
+    color: var(--nutui-title-color);
+  }
+}
+
+.nut-popup {
+  border-radius: var(--nutui-border-radius);
+}
+
+// 页面通用样式
+.page {
+  min-height: 100vh;
+  background-color: var(--nutui-background);
+  padding-bottom: calc(50px + constant(safe-area-inset-bottom));
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
+.section {
+  background-color: var(--nutui-white);
+  border-radius: var(--nutui-border-radius);
+  margin: 12px;
+  padding: 16px;
+}
+
+.section-title {
   font-size: 16px;
+  font-weight: 500;
+  color: var(--nutui-title-color);
+  margin-bottom: 12px;
 }

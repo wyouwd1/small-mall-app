@@ -1,3 +1,8 @@
-export default definePageConfig({
-  navigationBarTitleText: '首页'
-})
+
+export default {
+  navigationBarTitleText: '首页',
+  enablePullDownRefresh: true,
+  backgroundTextStyle: 'dark',
+  navigationBarBackgroundColor: '#ffffff',
+  navigationBarTextStyle: 'black'
+}

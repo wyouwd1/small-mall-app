@@ -1,12 +1,9 @@
+const path = require('path');
+
 const config = {
   projectName: 'small-mall-app',
-  date: '2025-3-27',
-  designWidth (input) {
-    if (input?.file?.replace(/\\+/g, '/').indexOf('@nutui') > -1) {
-      return 375
-    }
-    return 750
-  },
+  date: '2024-4-1',
+  designWidth: 375,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
@@ -25,19 +22,25 @@ const config = {
     }
   },
   framework: 'vue3',
-  compiler: {
-    type: 'webpack5',
-    prebundle: { enable: false }
+  compiler: 'webpack5',
+  cache: {
+    enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
-  sass:{
-    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
+  sass: {
+    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
+    resource: [
+      path.resolve(__dirname, '..', 'src/styles/custom-variables.scss')
+    ]
+  },
+  alias: {
+    '@': path.resolve(__dirname, '..', 'src')
   },
   mini: {
     postcss: {
       pxtransform: {
         enable: true,
         config: {
-          // selectorBlackList: ['nut-']
+          selectorBlackList: ['nut-']
         }
       },
       url: {
@@ -58,7 +61,7 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
-    esnextModules: ['nutui-taro', 'icons-vue-taro'],
+    esnextModules: ['@nutui/nutui-taro'],
     postcss: {
       autoprefixer: {
         enable: true,
@@ -74,11 +77,11 @@ const config = {
       }
     }
   }
-}
+};
 
 module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
-    return merge({}, config, require('./dev'))
+    return merge({}, config, require('./dev'));
   }
-  return merge({}, config, require('./prod'))
-}
+  return merge({}, config, require('./prod'));
+};

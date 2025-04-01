@@ -5,6 +5,30 @@ module.exports = {
     ['taro', {
       framework: 'vue3',
       ts: true
-    }]
+    }],
+    [
+      '@babel/preset-env',
+      {
+        targets: {
+          ios: '9',
+          android: '4.4'
+        },
+        useBuiltIns: 'usage',
+        corejs: 3
+      }
+    ]
+  ],
+  plugins: [
+    [
+      'import',
+      {
+        'libraryName': '@nutui/nutui-taro',
+        'libraryDirectory': 'dist/packages',
+        'style': true,
+        'camel2DashComponentName': false
+      },
+      'nutui4-taro'
+    ],
+    '@babel/plugin-transform-runtime'
   ]
 }

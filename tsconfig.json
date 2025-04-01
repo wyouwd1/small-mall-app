@@ -20,8 +20,22 @@
     "resolveJsonModule": true,
     "typeRoots": [
       "node_modules/@types"
+    ],
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": [
+      "@nutui/nutui-taro/dist/types",
+      "webpack-env"
     ]
   },
-  "include": ["./src", "./types", "components.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/components.d.ts",
+    "types",
+    "config"
+  ],
   "compileOnSave": false
 }

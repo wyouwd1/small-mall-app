@@ -1,19 +1,19 @@
 <template>
-  <view class="nav-bar">
+  <view class="custom-tab-bar">
     <nut-tabbar
-      v-model="activeTab"
+      v-model="active"
       bottom
       safe-area-inset-bottom
     >
       <nut-tabbar-item
-        v-for="(item, index) in tabItems"
+        v-for="(item, index) in list"
         :key="index"
-        :tab-title="item.title"
+        :tab-title="item.text"
       >
         <template #icon>
           <component 
             :is="item.icon" 
-            :color="activeTab === index ? '#ff4d4f' : '#999'"
+            :color="active === index ? '#ff4d4f' : '#999'"
             :size="22"
           />
         </template>
@@ -28,34 +28,34 @@ import Taro from '@tarojs/taro';
 import { Tabbar, TabbarItem } from '@nutui/nutui-taro';
 import { Home, Category, Cart, My } from '@nutui/icons-vue-taro';
 
-const tabItems = [
+const list = [
   {
-    title: '首页',
+    text: '首页',
     icon: Home,
-    path: '/pages/index/index'
+    pagePath: '/pages/index/index'
   },
   {
-    title: '分类',
+    text: '分类',
     icon: Category,
-    path: '/pages/category/index'
+    pagePath: '/pages/category/index'
   },
   {
-    title: '购物车',
+    text: '购物车',
     icon: Cart,
-    path: '/pages/cart/index'
+    pagePath: '/pages/cart/index'
   },
   {
-    title: '我的',
+    text: '我的',
     icon: My,
-    path: '/pages/mine/index'
+    pagePath: '/pages/mine/index'
   }
 ];
 
-const activeTab = ref(0);
+const active = ref(0);
 
 // 监听标签页变化
-watch(activeTab, (newValue) => {
-  const path = tabItems[newValue].path;
+watch(active, (newValue) => {
+  const path = list[newValue].pagePath;
   if (path !== Taro.getCurrentInstance().router?.path) {
     Taro.switchTab({
       url: path,
@@ -68,14 +68,24 @@ watch(activeTab, (newValue) => {
 
 // 初始化激活的标签
 const currentPath = Taro.getCurrentInstance().router?.path || '/pages/index/index';
-const initialIndex = tabItems.findIndex(item => item.path === currentPath);
+const initialIndex = list.findIndex(item => item.pagePath === currentPath);
 if (initialIndex !== -1) {
-  activeTab.value = initialIndex;
+  active.value = initialIndex;
 }
+
+// 供外部调用的方法
+function setActive(index: number) {
+  active.value = index;
+}
+
+// 将方法暴露给外部
+defineExpose({
+  setActive
+});
 </script>
 
 <style lang="scss">
-.nav-bar {
+.custom-tab-bar {
   .nut-tabbar {
     height: 50px;
     background-color: #ffffff;
@@ -105,7 +115,7 @@ if (initialIndex !== -1) {
 
 /* 暗色模式适配 */
 @media (prefers-color-scheme: dark) {
-  .nav-bar {
+  .custom-tab-bar {
     .nut-tabbar {
       background-color: #242424;
       box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
