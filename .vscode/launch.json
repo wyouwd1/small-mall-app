@@ -5,7 +5,7 @@
       "type": "node",
       "request": "launch",
       "name": "Start Project",
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run", "dev:h5"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
