@@ -1,3 +1,155 @@
-body {
-  font-size: 16px;
+// 主题变量
+:root {
+  --primary-color: #fa2c19;
+  --success-color: #00b578;
+  --warning-color: #ff8f1f;
+  --danger-color: #fa2c19;
+  --info-color: #909399;
+
+  --text-color: #333333;
+  --text-color-secondary: #666666;
+  --text-color-light: #999999;
+
+  --border-color: #ebedf0;
+  --border-color-light: #f5f5f5;
+
+  --background-color: #f7f8fa;
+  --white: #ffffff;
+
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+}
+
+// 重置样式
+page {
+  font-size: var(--font-size-md);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+view, text, input, textarea {
+  box-sizing: border-box;
+}
+
+// 常用布局类
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// 文本溢出省略
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsis-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+// 间距类
+.m-xs { margin: 5px; }
+.m-sm { margin: 10px; }
+.m-md { margin: 15px; }
+.m-lg { margin: 20px; }
+
+.mt-xs { margin-top: 5px; }
+.mt-sm { margin-top: 10px; }
+.mt-md { margin-top: 15px; }
+.mt-lg { margin-top: 20px; }
+
+.mb-xs { margin-bottom: 5px; }
+.mb-sm { margin-bottom: 10px; }
+.mb-md { margin-bottom: 15px; }
+.mb-lg { margin-bottom: 20px; }
+
+.p-xs { padding: 5px; }
+.p-sm { padding: 10px; }
+.p-md { padding: 15px; }
+.p-lg { padding: 20px; }
+
+// 自定义样式类
+.card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--border-color-light);
+  margin: 10px 0;
+}
+
+.badge {
+  background: var(--danger-color);
+  color: var(--white);
+  border-radius: 10px;
+  padding: 0 6px;
+  font-size: var(--font-size-xs);
+  display: inline-block;
+  line-height: 16px;
+}
+
+.price {
+  color: var(--danger-color);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+
+  &::before {
+    content: '¥';
+    font-size: 0.8em;
+    margin-right: 2px;
+  }
+}
+
+// NutUI 主题定制
+:root {
+  // 主题色
+  --nut-primary-color: var(--primary-color);
+  --nut-primary-color-end: var(--primary-color);
+  
+  // 按钮
+  --nut-button-border-radius: 25px;
+  
+  // 输入框
+  --nut-input-border-radius: 4px;
+  
+  // 标签
+  --nut-tag-border-radius: 2px;
 }
