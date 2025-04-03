@@ -18,7 +18,7 @@ const nutComponents = [
   Button, Cell, CellGroup, Grid, GridItem, 
   Swiper, SwiperItem, Price, Card, Checkbox, InputNumber, 
   Avatar, Tag, Badge, Input, Tabbar, TabbarItem,
-  Searchbar, Divider, Image, SideNavbar, SideNavbarItem,
+  Searchbar, Divider, SideNavbar, SideNavbarItem,
   Form, FormItem, Space
 ]
 

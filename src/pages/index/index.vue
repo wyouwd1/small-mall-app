@@ -30,15 +30,16 @@
       <nut-space direction="vertical" :gap="10">
         <nut-grid :column-num="2" :border="false">
           <nut-grid-item v-for="(item, index) in products" :key="index" @click="onProductClick(item)">
-            <nut-card
-              :img-url="item.imgUrl"
-              :title="item.name"
-            >
-              <template #price>
-                <nut-price :price="item.price" size="normal" />
-                <nut-price :price="item.vipPrice" size="small" class="vip-price" />
-              </template>
-            </nut-card>
+            <view class="goods-card">
+              <image :src="item.imgUrl" style="width: 100%; height: 150px; border-radius: 4px;" />
+              <view class="goods-info">
+                <view class="goods-name">{{ item.name }}</view>
+                <view class="price-info">
+                  <nut-price :price="item.price" size="normal" />
+                  <nut-price :price="item.vipPrice" size="small" class="vip-price" />
+                </view>
+              </view>
+            </view>
           </nut-grid-item>
         </nut-grid>
       </nut-space>
@@ -47,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, markRaw } from 'vue'
 import Taro from '@tarojs/taro'
 import { Search, Cart, Shop, Shop3, Star } from '@nutui/icons-vue-taro'
 import { showToast } from '@tarojs/taro'
@@ -81,11 +82,11 @@ const banners = ref([
 
 // 分类数据
 const categories = ref([
-  { icon: Shop, name: '超市' },
-  { icon: Shop3, name: '新品' },
-  { icon: Cart, name: '促销' },
-  { icon: Star, name: '精选' },
-  { icon: Search, name: '更多' }
+  { icon: markRaw(Shop), name: '超市' },
+  { icon: markRaw(Shop3), name: '新品' },
+  { icon: markRaw(Cart), name: '促销' },
+  { icon: markRaw(Star), name: '精选' },
+  { icon: markRaw(Search), name: '更多' }
 ])
 
 // 商品数据
@@ -177,14 +178,38 @@ const onProductClick = (product) => {
   .goods-list {
     background: #fff;
   
-    :deep(.nut-card) {
+    .goods-card {
       margin: 5px;
-    }
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
-    .vip-price {
-      margin-left: 5px;
-      color: #999;
-      text-decoration: line-through;
+      .goods-info {
+        padding: 8px;
+
+        .goods-name {
+          font-size: 14px;
+          color: #333;
+          margin-bottom: 5px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+
+        .price-info {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          .vip-price {
+            color: #999;
+            text-decoration: line-through;
+          }
+        }
+      }
     }
   }
 }

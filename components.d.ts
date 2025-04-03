@@ -7,11 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    NavBar: typeof import('./src/components/NavBar.vue')['default']
     NutAvatar: typeof import('@nutui/nutui-taro')['Avatar']
     NutBadge: typeof import('@nutui/nutui-taro')['Badge']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
-    NutCard: typeof import('@nutui/nutui-taro')['Card']
     NutCell: typeof import('@nutui/nutui-taro')['Cell']
     NutCellGroup: typeof import('@nutui/nutui-taro')['CellGroup']
     NutCheckbox: typeof import('@nutui/nutui-taro')['Checkbox']
@@ -22,14 +20,10 @@ declare module 'vue' {
     NutFormItem: typeof import('@nutui/nutui-taro')['FormItem']
     NutGrid: typeof import('@nutui/nutui-taro')['Grid']
     NutGridItem: typeof import('@nutui/nutui-taro')['GridItem']
-    NutIcon: typeof import('@nutui/nutui-taro')['Icon']
-    NutImage: typeof import('@nutui/nutui-taro')['Image']
     NutInput: typeof import('@nutui/nutui-taro')['Input']
     NutInputNumber: typeof import('@nutui/nutui-taro')['InputNumber']
     NutPrice: typeof import('@nutui/nutui-taro')['Price']
     NutSearchbar: typeof import('@nutui/nutui-taro')['Searchbar']
-    NutSidebar: typeof import('@nutui/nutui-taro')['Sidebar']
-    NutSidebarItem: typeof import('@nutui/nutui-taro')['SidebarItem']
     NutSideNavbar: typeof import('@nutui/nutui-taro')['SideNavbar']
     NutSideNavbarItem: typeof import('@nutui/nutui-taro')['SideNavbarItem']
     NutSpace: typeof import('@nutui/nutui-taro')['Space']

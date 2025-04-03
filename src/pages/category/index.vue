@@ -52,14 +52,13 @@
                 :key="goodsIndex"
                 @click="onGoodsClick(goods)"
               >
-                <nut-card
-                  :img-url="goods.image"
-                  :title="goods.name"
-                >
-                  <template #price>
+                <view class="goods-card">
+                  <image :src="goods.image" style="width: 100%; height: 150px; border-radius: 4px;" />
+                  <view class="goods-info">
+                    <view class="goods-name">{{ goods.name }}</view>
                     <nut-price :price="goods.price" size="normal" />
-                  </template>
-                </nut-card>
+                  </view>
+                </view>
               </nut-grid-item>
             </nut-grid>
           </view>
@@ -210,8 +209,27 @@ const onGoodsClick = (goods) => {
         margin: 10px 0;
       }
 
-      :deep(.nut-card) {
+      .goods-card {
         margin: 5px;
+        background: #fff;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+        .goods-info {
+          padding: 8px;
+
+          .goods-name {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+        }
       }
     }
   }
